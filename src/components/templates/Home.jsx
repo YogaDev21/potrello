@@ -1,10 +1,12 @@
 import Image from "next/image";
 import React from "react";
 
+// Import Components
+import Button from "@/src/components/atoms/Button";
+
 // Import Icons
 import { MdImage } from "react-icons/md";
 import { SlOptionsVertical } from "react-icons/sl";
-import Pomodoro from "../button/Pomodoro";
 
 export default function Home() {
   return (
@@ -25,7 +27,7 @@ export default function Home() {
               <MdImage className="size-7" />
             </div>
             {/* <Image className="" /> */}
-            <div id="song-list-content" className="p-2 flex flex-col gap-3">
+            <div id="song-list-content" className="p-2 flex flex-`col gap-3">
               <div
                 id="song-title"
                 className="flex items-center justify-between"
@@ -46,15 +48,14 @@ export default function Home() {
             ></div>
           </div>
         </div>
-        <div id="second-column" className="col-span-6 p-3 rounded-lg h-full">
-          <div className="flex items-center justify-center">
-            <Pomodoro />
-          </div>
-        </div>
+        <div
+          id="second-column"
+          className="col-span-6 p-3 rounded-lg h-full"
+        ></div>
         <div id="third-column" className="flex flex-col gap-3 col-span-3">
           <div
             id="song-list"
-            className="flex flex-col gap-3 p-3 bg-potrello-white-100 rounded-lg h-[60%] shadow-sm shadow-gray-100 border border-gray-200/85"
+            className="flex flex-col gap-3 p-3 bg-potrello-white-100 rounded-lg h-[60%]   shadow-sm shadow-gray-100 border border-gray-200/85"
           >
             <div
               id="image"
@@ -62,6 +63,7 @@ export default function Home() {
             >
               <MdImage className="size-7" />
             </div>
+            <Button btnStyle=""></Button>
             {/* <Image className="" /> */}
             <div id="song-list-content" className="p-2 flex flex-col gap-3">
               <div
