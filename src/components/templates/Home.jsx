@@ -7,6 +7,9 @@ import Button from "@/src/components/atoms/Button";
 // Import Icons
 import { MdImage } from "react-icons/md";
 import { SlOptionsVertical } from "react-icons/sl";
+import TodoList from "../organisms/TodoList";
+import MusicPlayer from "../organisms/MusicPlayer";
+import Pomodoro from "../organisms/Pomodoro";
 
 export default function Home() {
   return (
@@ -50,40 +53,22 @@ export default function Home() {
         </div>
         <div
           id="second-column"
-          className="col-span-6 p-3 rounded-lg h-full"
-        ></div>
+          className="col-span-6 p-3 rounded-lg h-full flex"
+        >
+          <Pomodoro />
+        </div>
         <div id="third-column" className="flex flex-col gap-3 col-span-3">
           <div
             id="song-list"
             className="flex flex-col gap-3 p-3 bg-potrello-white-100 rounded-lg h-[60%]   shadow-sm shadow-gray-100 border border-gray-200/85"
           >
-            <div
-              id="image"
-              className="flex items-center justify-center h-24 bg-gray-200 rounded-md"
-            >
-              <MdImage className="size-7" />
-            </div>
-            <Button btnStyle=""></Button>
-            {/* <Image className="" /> */}
-            <div id="song-list-content" className="p-2 flex flex-col gap-3">
-              <div
-                id="song-title"
-                className="flex items-center justify-between"
-              >
-                <p className="text-sm">Josh Hutcherson || Whistle</p>
-                <SlOptionsVertical className="size-4 fill-gray-500" />
-              </div>
-            </div>
+            <MusicPlayer />
           </div>
           <div
             id="todolist"
             className="p-3 bg-potrello-white-100 rounded-lg h-[40%] shadow-md shadow-gray-100 border border-gray-200/85"
           >
-            <div id="todolist-title"></div>
-            <div
-              id="todolist-content"
-              className="p-2 flex flex-col gap-3"
-            ></div>
+            <TodoList />
           </div>
         </div>
       </div>
