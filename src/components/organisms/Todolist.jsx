@@ -41,7 +41,7 @@ const TodoList = () => {
     <div>
       <form onSubmit={handleFormSubmit}>
         <div className="flex justify-between">
-          <h1 className="font-bold text-2xl  px-2 py-3">Todo List</h1>
+          <h1 className="font-bold text-2xl pb-2">Todo List</h1>
           <button
             type="submit"
             className="text-black px-2 py-3"
@@ -64,7 +64,7 @@ const TodoList = () => {
         {todos.length > 0 ? (
           <ul>
             {todos.map((todo, index) => (
-              <li className="bg-gray-200 py-2 px-3 mt-2" key={index}>
+              <li className="bg-gray-200 p-3" key={index}>
                 <div className="flex justify-between">
                   {todo}
                   <input
@@ -76,7 +76,7 @@ const TodoList = () => {
             ))}
           </ul>
         ) : (
-          <p className="bg-gray-200 py-2 px-3 mt-2">No todos yet.</p>
+          <p className="bg-gray-200 p-3">No todos yet.</p>
         )}
       </div>
     </div>
