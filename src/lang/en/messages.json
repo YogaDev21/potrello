@@ -1,3 +1,6 @@
 {
-    "something": "Hello"
+    "title": "Trello",
+    "about": {
+        "github": "https://github.com/YogaDev21"
+    }
 }

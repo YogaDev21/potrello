@@ -6,6 +6,7 @@
  * @property {string} author - The author of the video.
  * @property {string} title - The title of the video.
  * @property {string} url - The URL of the video.
+ * @property {string} [description=""] - The description of the video
  */
 
 /**

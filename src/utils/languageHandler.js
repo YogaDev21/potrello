@@ -1,30 +1,55 @@
-import path from 'path';
-import { promises as fs } from 'fs';
-import dotenv from 'dotenv';
+import path from "path";
+import { promises as fs } from "fs";
+import { useMemo } from "react";
+
+import dotenv from "dotenv";
 dotenv.config();
 
 const config = {
-    lang: process.env.APP_LANG || "en",
-    basePath: "../src/lang",
-    separator: ["."]
-}
+  lang: process.env.APP_LANG || "en",
+  basePath: "src/lang",
+  separator: ["."],
+};
 
-/**
- * 
- * @param {string} property Properties that are found within the lang folder
- */
-const __ = async (property) => {
-    if(/\.+/g.test(property)) throw new Error("You must follow the format: filename.property");
-    let components = property.split(/\./);
-    const [filename, properties] = [components.shift(), components.join(".")]
-    
-    let file = await fs.readFile(config.basePath, 'utf-8');
+const _getObjectPropertyUsingPathname = (propertyPath, obj) => {
+  const properties = propertyPath.split(".");
+  let currentObj = obj;
 
-    if(file) {
-
+  try {
+    for (let i = 0; i < properties.length; i++) {
+      const property = properties[i];
+      if (property in currentObj) {
+          currentObj = currentObj[property];
+        } else {
+            throw new Error("Property doesn't exist!");
+        }
     }
+    
+    return currentObj;
+  } catch (err) {}
+};
 
+const loadTranslation = async (lang) => {
+  const basePath = config.basePath;
+  let obj = {};
 
-}   
+  try {
+    let files = await fs.readdir(`${basePath}/${lang}`, "utf-8");
 
-export default __;
+    if (files) {
+      for (const file of files) {
+        const data = JSON.parse(
+          await fs.readFile(`${basePath}/${lang}/${file}`, "utf-8")
+        );
+        if (data) {
+          obj[file.replace(/\.[a-z]+/g, "")] = data;
+        }
+      }
+    }
+    return obj;
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+export { _getObjectPropertyUsingPathname, loadTranslation };
