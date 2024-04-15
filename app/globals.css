@@ -1,3 +1,59 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+    .text-10xl {
+        font-size: 11rem;
+    }
+    
+    .text-11xl {
+        font-size: 15rem;
+    }
+    
+    .text-12xl {
+        font-size: 20rem;
+    }
+}
+
+@layer components {
+    .pomodoro-mode {
+        @apply p-2 px-4 rounded-full font-medium text-white border border-white hover:bg-white hover:text-gray-900 transition duration-150;
+    }
+
+    .pomodoro-timer-start {
+        @apply p-2 px-4 rounded-full text-white border-2 border-white;
+    }
+
+    .pomodoro-mode.active {
+        @apply bg-white text-gray-900;
+    }
+
+    .pomodoro-timer {
+        @apply flex flex-col items-center justify-center;
+    }
+
+    .pomodoro-timer-control {
+        @apply text-xl font-medium p-2 px-10 rounded-full text-gray-800 bg-gray-100 hover:bg-gray-700 hover:text-gray-100 transition duration-150;
+    }
+
+    .pomodoro-timer-control-plain {
+        @apply text-xl p-2 px-6 text-gray-100 transition duration-150;
+    }
+
+    .pomodoro-timer-display {
+        @apply text-9xl font-bold text-white;
+    }
+
+    .floating-navbar-button {
+        @apply w-11 h-11 grid place-items-center bg-gray-800 hover:bg-gray-700 rounded-lg;
+    }
+
+    .floating-navbar-mode-button {
+        @apply w-11 h-11 grid place-items-center rounded-full;
+    }
+
+    .floating-navbar-mode-button.active {
+        @apply bg-gradient-to-b from-blue-300 from-5% to-blue-500 to-95%;
+    }
+}
